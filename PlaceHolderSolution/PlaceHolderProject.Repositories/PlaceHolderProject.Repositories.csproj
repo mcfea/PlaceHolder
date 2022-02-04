@@ -44,12 +44,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Posts\Post.cs" />
     <Compile Include="Users\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Geo.cs" />
     <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\User.cs" />
-    <Compile Include="Users\UserRepository.cs" />
+    <Compile Include="Users\HttpUserRepository.cs" />
     <Compile Include="Users\UserRepositoryFactory.cs" />
   </ItemGroup>
   <ItemGroup>

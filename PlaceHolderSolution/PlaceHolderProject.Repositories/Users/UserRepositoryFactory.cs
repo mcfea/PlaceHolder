@@ -2,6 +2,6 @@
 {
     public static class UserRepositoryFactory
     {
-        public static IUserRepository GetUserRepository() => new PlaceHolderJsonUserRepository();
+        public static IUserRepository GetUserRepository() => new HttpUserRepository();
     }
 }

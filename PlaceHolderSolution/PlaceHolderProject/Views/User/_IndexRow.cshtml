@@ -3,5 +3,8 @@
     <td>@Model.Username</td>
     <td>@Model.Name</td>
     <td>@Model.Email</td>
-    <td>@Html.ActionLink("Details", "Details", new{ Model.Id })</td>
+    <td>
+        @Html.ActionLink("Details", "Details", new {Model.Id}) |
+        @Html.ActionLink("Delete", "Delete", new {Model.Id}) 
+    </td>
 </tr>

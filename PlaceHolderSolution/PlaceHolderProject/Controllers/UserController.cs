@@ -36,11 +36,11 @@ namespace PlaceHolderProject.Controllers
 
         // POST: User/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(User user)
         {
             try
             {
-                // TODO: Add insert logic here
+                _repository.InsertUser(user);
 
                 return RedirectToAction("Index");
             }
@@ -53,17 +53,17 @@ namespace PlaceHolderProject.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var user = _repository.GetUserById(id);
+            return View(user);
         }
 
         // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(User user)
         {
             try
             {
-                // TODO: Add update logic here
-
+                _repository.UpdateUser(user);
                 return RedirectToAction("Index");
             }
             catch
@@ -75,12 +75,13 @@ namespace PlaceHolderProject.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var user = _repository.GetUserById(id);
+            return View(user);
         }
 
-        // POST: User/Delete/5
+        // POST: User/DeleteConfirm/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult DeleteConfirm(int id)
         {
             try
             {

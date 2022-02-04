@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PlaceHolderProject.Repositories.Posts;
 
 namespace PlaceHolderProject.Repositories.Users
 {
@@ -7,9 +8,9 @@ namespace PlaceHolderProject.Repositories.Users
     {
         IEnumerable<User> GetUsers();
         User GetUserById(int userId);
+        IEnumerable<Post> GetUserPostsByUserId(int userId);
         void InsertUser(User user);
-        void DeleteUser(int userID);
+        void DeleteUser(int userId);
         void UpdateUser(User user);
-        void Save();
     }
 }
