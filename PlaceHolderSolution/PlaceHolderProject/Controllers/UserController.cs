@@ -76,7 +76,7 @@ namespace PlaceHolderProject.Controllers
         public ActionResult Delete(int id)
         {
             var user = _repository.GetUserById(id);
-            return View(user);
+            return PartialView(user);
         }
 
         // POST: User/DeleteConfirm/5
@@ -85,7 +85,7 @@ namespace PlaceHolderProject.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                _repository.DeleteUser(id);
 
                 return RedirectToAction("Index");
             }

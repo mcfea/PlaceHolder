@@ -4,7 +4,8 @@
     <td>@Model.Name</td>
     <td>@Model.Email</td>
     <td>
-        @Html.ActionLink("Details", "Details", new {Model.Id}) |
-        @Html.ActionLink("Delete", "Delete", new {Model.Id}) 
+        @Html.ActionLink("Details", "Details", new {Model.Id}) 
+        |
+        @Html.ActionLink("Delete", "Delete", null, new {Model.Id}, new{@class = "pop"}) 
     </td>
 </tr>

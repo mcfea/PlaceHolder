@@ -44,6 +44,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Posts\IUserRepository.cs" />
     <Compile Include="Posts\Post.cs" />
     <Compile Include="Users\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
