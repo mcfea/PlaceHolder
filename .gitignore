@@ -1,0 +1,14 @@
+*.dbmdl
+*.jfm
+*.pdb
+*.pubxml
+*.suo
+*.user
+bin
+obj
+packages/
+.vs/config/applicationhost.config
+/.vs
+/TestResults
+TestResults
+/_ReSharper.Caches

@@ -1,0 +1,25 @@
+﻿@model IEnumerable<PlaceHolderProject.Repositories.Users.User>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Users</h1>
+    <p class="lead">This is where you can learn all about our users.</p>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Username</th>
+        <th>Name</th>
+        <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var user in Model)
+    {
+        @Html.Partial("_IndexRow", user)
+    }
+    </tbody>
+</table>
