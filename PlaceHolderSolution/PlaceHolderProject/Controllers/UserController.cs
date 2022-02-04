@@ -16,7 +16,7 @@ namespace PlaceHolderProject.Controllers
         // GET: User
         public ActionResult Index()
         {
-            var users = _repository.GetUsers();
+            var users = _repository.GetAll();
 
             return View(users);
         }
@@ -24,7 +24,7 @@ namespace PlaceHolderProject.Controllers
         // GET: User/Details/5
         public ActionResult Details(int id)
         {
-            var user = _repository.GetUserById(id);
+            var user = _repository.GetById(id);
             return View(user);
         }
 
@@ -40,7 +40,7 @@ namespace PlaceHolderProject.Controllers
         {
             try
             {
-                _repository.InsertUser(user);
+                _repository.Insert(user);
 
                 return RedirectToAction("Index");
             }
@@ -53,7 +53,7 @@ namespace PlaceHolderProject.Controllers
         // GET: User/Edit/5
         public ActionResult Edit(int id)
         {
-            var user = _repository.GetUserById(id);
+            var user = _repository.GetById(id);
             return View(user);
         }
 
@@ -63,7 +63,7 @@ namespace PlaceHolderProject.Controllers
         {
             try
             {
-                _repository.UpdateUser(user);
+                _repository.Update(user);
                 return RedirectToAction("Index");
             }
             catch
@@ -75,7 +75,7 @@ namespace PlaceHolderProject.Controllers
         // GET: User/Delete/5
         public ActionResult Delete(int id)
         {
-            var user = _repository.GetUserById(id);
+            var user = _repository.GetById(id);
             return PartialView(user);
         }
 
@@ -85,7 +85,7 @@ namespace PlaceHolderProject.Controllers
         {
             try
             {
-                _repository.DeleteUser(id);
+                _repository.Delete(id);
 
                 return RedirectToAction("Index");
             }

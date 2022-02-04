@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
+using PlaceHolderProject.Repositories.JsonHelpers;
 using PlaceHolderProject.Repositories.Posts;
 
 namespace PlaceHolderProject.Repositories.Users
@@ -11,16 +10,21 @@ namespace PlaceHolderProject.Repositories.Users
     internal class HttpUserRepository : IUserRepository
     {
         private const string Target = "users";
-        private readonly HttpClient _client = new HttpClient(){BaseAddress = new Uri("https://jsonplaceholder.typicode.com") };
-        
-        public IEnumerable<User> GetUsers()
+        private readonly HttpClient _client;
+
+        public HttpUserRepository(HttpClient client)
+        {
+            _client = client ?? throw new ArgumentNullException(nameof(client));
+        }
+
+        public IEnumerable<User> GetAll()
         {
             var response = _client.GetStringAsync(Target).Result;
 
             return JsonConvert.DeserializeObject<List<User>>(response);
         }
 
-        public User GetUserById(int userId)
+        public User GetById(int userId)
         {
             var response = _client.GetStringAsync($"{Target}/{userId}").Result;
             
@@ -34,34 +38,27 @@ namespace PlaceHolderProject.Repositories.Users
             return JsonConvert.DeserializeObject<List<Post>>(response);
         }
 
-        public void InsertUser(User user)
+        public void Insert(User user)
         {
-            var content = GetStringContentFor(user);
+            var content = user.GetStringContentFor();
 
             var result = _client.PostAsync(Target, content).Result;
 
             result.EnsureSuccessStatusCode();
         }
 
-        public void DeleteUser(int userId)
+        public void Delete(int userId)
         {
             var result = _client.DeleteAsync($"{Target}/{userId}").Result;
 
             result.EnsureSuccessStatusCode();
         }
 
-        public void UpdateUser(User user)
+        public void Update(User user)
         {
-            var content = GetStringContentFor(user);
+            var content = user.GetStringContentFor();
             var result = _client.PutAsync($"{Target}/{user.Id}", content).Result;
             result.EnsureSuccessStatusCode();
-        }
-
-        private static StringContent GetStringContentFor(User user)
-        {
-            var userJson = JsonConvert.SerializeObject(user);
-            var content = new StringContent(userJson, Encoding.UTF8, "application/json");
-            return content;
         }
 
         public void Dispose()

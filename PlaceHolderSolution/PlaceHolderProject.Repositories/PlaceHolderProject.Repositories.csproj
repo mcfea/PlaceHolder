@@ -44,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Posts\IUserRepository.cs" />
+    <Compile Include="JsonHelpers\Serializer.cs" />
+    <Compile Include="Posts\HttpPostRepository.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Posts\IPostRepository.cs" />
     <Compile Include="Posts\Post.cs" />
     <Compile Include="Users\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -52,7 +55,7 @@
     <Compile Include="Users\IUserRepository.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\HttpUserRepository.cs" />
-    <Compile Include="Users\UserRepositoryFactory.cs" />
+    <Compile Include="Factories\UserRepositoryFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

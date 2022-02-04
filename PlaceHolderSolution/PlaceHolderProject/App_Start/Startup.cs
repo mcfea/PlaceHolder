@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using Autofac;
 using Autofac.Integration.Mvc;
+using PlaceHolderProject.Repositories.Factories;
 using PlaceHolderProject.Repositories.Users;
 
 namespace PlaceHolderProject.App_Start
@@ -19,7 +16,7 @@ namespace PlaceHolderProject.App_Start
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
 
             // user repositories
-            builder.Register(x => UserRepositoryFactory.GetUserRepository()).As<IUserRepository>().InstancePerRequest();
+            builder.Register(x => UserRepositoryFactory.GetRepository()).As<IUserRepository>().InstancePerRequest();
 
             // set resolver
             var container = builder.Build();
