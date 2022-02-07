@@ -1,0 +1,20 @@
+﻿@using PlaceHolderProject.Repositories.Posts
+@model IEnumerable<Post>
+@{
+    ViewBag.Title = "Hot Posts Page";
+}
+
+<div class="jumbotron">
+    <h1>Posts About Things</h1>
+    <p class="lead">Please come and check out our posts.</p>
+    <p><a href="@Url.Action("About")" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        @foreach (var post in Model)
+        {
+            @Html.DisplayFor(x => post)
+        }
+    </div>
+</div>

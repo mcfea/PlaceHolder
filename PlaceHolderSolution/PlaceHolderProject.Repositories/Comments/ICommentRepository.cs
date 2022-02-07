@@ -5,6 +5,6 @@ namespace PlaceHolderProject.Repositories.Comments
 {
     public interface ICommentRepository : IRepository<Comment>
     {
-        IEnumerable<Comment> GetCommentsByPostId(int commentId);
+        IEnumerable<Comment> GetCommentsByPostId(int postId);
     }
 }

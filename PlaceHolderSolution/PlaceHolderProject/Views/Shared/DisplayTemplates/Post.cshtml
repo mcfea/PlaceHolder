@@ -1,0 +1,14 @@
+﻿@model PlaceHolderProject.Repositories.Posts.Post
+
+@{ var updateId = "comments-for-post-" + Model.Id; }
+<h2>@Model.Title</h2>
+<p>
+    @Model.Body
+</p>
+<div>
+    @*<a class="btn btn-default" href="@Url.Action("Details", "User", new {Model.UserId})">@post.User.Name &raquo;</a>*@
+    <div id="@updateId">
+        @Ajax.ActionLink("Load Comments", "CommentsForPost", "Comment", new { postId = Model.Id },
+              new AjaxOptions() { InsertionMode = InsertionMode.Replace, UpdateTargetId = updateId, HttpMethod = "GET" })
+    </div>
+</div>
