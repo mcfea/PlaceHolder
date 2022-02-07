@@ -4,13 +4,25 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using PlaceHolderProject.Repositories.Posts;
 
 namespace PlaceHolderProject.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IPostRepository _postRepository;
+
+        public HomeController(IPostRepository postRepository)
+        {
+            _postRepository = postRepository ?? throw new ArgumentNullException(nameof(postRepository));
+        }
+
         public ActionResult Index()
         {
+            var topPosts = _postRepository.GetAll().Take(5);
+
+            ViewBag.TopPosts = topPosts;
+
             return View();
         }
 

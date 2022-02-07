@@ -44,11 +44,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Todos\HttpToDoRepository.cs" />
+    <Compile Include="Todos\IToDoRepository.cs" />
+    <Compile Include="Todos\ToDo.cs" />
+    <Compile Include="Photos\Photo.cs" />
+    <Compile Include="Photos\HttpPhotoRepository.cs" />
+    <Compile Include="Photos\IPhotoRepository.cs" />
+    <Compile Include="Albums\Album.cs" />
+    <Compile Include="Albums\HttpAlbumRepository.cs" />
+    <Compile Include="Albums\IAlbumRepository.cs" />
     <Compile Include="JsonHelpers\Serializer.cs" />
     <Compile Include="Posts\HttpPostRepository.cs" />
     <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Posts\IPostRepository.cs" />
     <Compile Include="Posts\Post.cs" />
+    <Compile Include="Comments\HttpCommentRepository.cs" />
+    <Compile Include="Comments\ICommentRepository.cs" />
+    <Compile Include="Comments\Comment.cs" />
     <Compile Include="Users\Address.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Users\Geo.cs" />

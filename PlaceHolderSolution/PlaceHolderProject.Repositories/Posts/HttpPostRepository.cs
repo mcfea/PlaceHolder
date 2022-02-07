@@ -52,6 +52,13 @@ namespace PlaceHolderProject.Repositories.Posts
             var result = _client.PutAsync($"{Target}/{user.Id}", content).Result;
             result.EnsureSuccessStatusCode();
         }
+        
+        public IEnumerable<Post> GetPostsByUserId(int userId)
+        {
+            var response = _client.GetStringAsync($"users/{userId}/{Target}").Result;
+
+            return JsonConvert.DeserializeObject<List<Post>>(response);
+        }
 
 
         public void Dispose()

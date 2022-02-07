@@ -31,13 +31,6 @@ namespace PlaceHolderProject.Repositories.Users
             return JsonConvert.DeserializeObject<User>(response);
         }
 
-        public IEnumerable<Post> GetUserPostsByUserId(int userId)
-        {
-            var response = _client.GetStringAsync($"{Target}/{userId}/posts").Result;
-
-            return JsonConvert.DeserializeObject<List<Post>>(response);
-        }
-
         public void Insert(User user)
         {
             var content = user.GetStringContentFor();
